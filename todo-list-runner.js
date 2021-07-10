@@ -1,12 +1,12 @@
-// Немного кода за тебя уже написано.
+// Some code has already been written for you.
 const fs = require('fs');
 
-// Аргументы командной строки.
+// Command line arguments.
 const args = process.argv.slice(2);
 console.log(`You've passed arguments: [${args.length ? args : 'no args :('}]`);
 console.log('---------------------------');
 
-// Достаём todos из файла.
+// Getting our todos from the file.
 const filePath = 'todo-list-data.csv';
 fs.readFile(filePath, 'utf-8', (err, data) => {
     const todos = data.split('\n').slice(1);

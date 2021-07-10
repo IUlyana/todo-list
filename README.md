@@ -1,17 +1,16 @@
 # Todo List
+## Introduction
 
-## Введение
-Тебе предстоит создать приложение списка дел. Твоё приложение будет создаваться пошагово. Начни с отображения списка элементов и продолжай шаг за шагом, пока не закончишь добавлять все необходимые функции. Когда приложение будет готово, то в нем пользователь сможет отображать нужные ему задачи, добавлять или удалять их, а также помечать задачи как завершенные.
+You are about to create a Todo list app. You will be making it step by step. Start with displaying the list of items and continue moving step by step until you finish adding all the functionality you need. Once the application is ready, the user will be able to display the tasks he or she needs, add or remove them and also mark them as completed.
 
-Приложение должно соответствовать основным объектно-ориентированным принципам. Продумай каждое решение, соблюдая [принцип единой ответственности][wikipedia srp], [разделение ответственности][wikipedia soc] и другие принципы проектирования.
-
+The application must meet the basic object-oriented pricniples. Think carefully through each solution, following [single responsibility principle][wikipedia srp], [shared responsibility][wikipedia soc] and other design principles.
 
 ## Releases
-### Release 0: Отображение элементов todo листа
-У тебя есть файл CSV, который содержит описания некоторых задач todo листа (списка дел) (см. `todo-list-data.csv`). Начни приложение с отображения списка дел (см. Рис. 1).
+### Release 0: Displaying todo list items
 
-Прежде чем начать писать код, обязательно продумай процесс, необходимый для отображения списка.
-После того, как ты определил функции твоего приложения, определи, какие объекты тебе нужны для их реализации, не забывая при этом применять объектно-ориентированные принципы проектирования. Затем напиши необходимые классы, и не забудь про тесты.
+You have a CSV file that contains descriptions of some of the todo list tasks. (see `todo-list-data.csv`). Start the application by displaying a todo list (see Figure 1).
+
+Before you start coding, be sure to think through the process required to render the list. After you have defined the functions that you will be using for your application, decide what objects you will need to create while still making sure to apply object-oriented design principles. Then write the necessary classes, and do not forget about the tests.
 
 ```
 $ node todo-list-runner.js
@@ -20,15 +19,14 @@ $ node todo-list-runner.js
 - Buy groceries for the week.
 - Call Penelope.
 ```
-*Рисунок 1*. Пример отображения списка задач.
+*Figure 1*. Example of displaying the todo list.
 
 
+### Release 1: Adding new items to the list
 
-### Release 1: Добавление новых элементов в список
-Добавь в приложение новую функцию: пользователи должны иметь возможность добавлять новые элементы в список. При запуске приложения пользователям теперь нужно будет указать, что они хотят сделать; пользователи передадут параметры командной строки, чтобы отобразить существующий список дел или добавить новый элемент (см. Рис. 2).
+Add a new feature to your app: users should able to add new items to the list. When they open the application, users will now need to specify what it is that they wanna do; users will pass command line parameters to display an existing todo list or add a new item (see Figure 2).
 
-Тебе нужно проанализировать аргументы командной строки и, если там есть слово `add`, а после него текст, то надо записать этот текст в файл. Для этого используй `process.argv.slice(2)`.
-
+You will need to parse the command line arguments and if there is the word `add`, followed by text, then you will need to write this text to a file. To do this, use `process.argv.slice (2)`.
 
 ```
 $ node todo-list-runner.js list
@@ -43,11 +41,12 @@ $ node todo-list-runner.js list
 - Go to the gym.
 - Finish code challenge.
 ```
-*Рисунок 2*. Использование параметров командной строки для отображения списка задач или добавления новой задачи.
+*Figure 2*. Using command line parameters to display a list of tasks or add a new task.
 
 
-### Release 2: Удаление элементов из списка
-Иногда мы добавляем задачу в список, но по прошествии времени мы больше не хотим её выполнять. Добавьте функцию, которая позволит пользователям удалять элементы (см. Рис. 3).
+### Release 2: Removing items from the list
+
+Sometimes we add a task to the list but in a while we do not want to do it anymore. Add a function which will allow the users to remove items from the todo list (see Figure 3).
 
 ```
 $ node todo-list-runner.js list
@@ -60,13 +59,15 @@ Removed "Go to the gym." from the list.
 $ node todo-list-runner.js list
 - Walk the cat.
 ```
-*Рисунок 3*. Удаление элемента из списка.
+*Figure 3*. Removing items from the todo list.
 
 
-### Release 3: Выполнение задач
-Что должно происходить, когда какое-нибудь дело из твоего списка завершено? Учитывая текущий набор функций, тебе пришлось бы удалить его из списка. Но тогда ты не сможешь порадоваться своей продуктивности, наслаждаясь количеством выполненных за день дел. Добавь функцию, которая позволит помечать в приложении выполненные задания (см. Рис. 4).
+### Release 3: Doing the task
 
-Создание этой функции повлечет за собой ряд изменений. Нужно будет изменить твой файл с данными, чтобы хранить в нем информацию о статусе каждой задачи. Тебе нужно будет также изменить способ представления элементов в JavaScript; необходимо будет отразить опцию возможности их завершения. Не забудь обновить свои тесты. 
+What should happen when something on your list is completed? Given the current feature set, you would have to remove it from the list. But then you will not be able to rejoice at your productivity, enjoying the number of tasks completed in a day. Add a function that allows you to mark completed tasks in the application (see Figure 4).
+
+The creation of this feature will entail a number of changes. You will need to modify your data file to store information about the status of each task. You will also need to change the way elements are represented in Javascript; it will be necessary to reflect the option of the task's completion possibility. Do not forget to update your tests.
+
 
 ```
 $ node todo-list-runner.js list
@@ -80,17 +81,18 @@ $ node todo-list-runner.js list
 [X] Walk the cat.
 [ ] Go to the gym.
 ```
-*Рисунок 4*. Пометка задания как выполненного
+*Figure 4*. Marking an assignment as completed
 
-## Заключение
-Твоё приложение можно поделить на 3 основных компонента:
+## Conclusion
 
-1. `Model`. Объекты, классы JavaScript, которые моделируют реальный список дел. А также их методы, куда скорее всего входят чтение и запись данных из файла.
-2. `View`. Форматирование информации и ее отображение пользователю.
-3. `Controller`. Интерпретация пользовательского ввода и последующее выполнение соответствующих действий.
+Your application can be divided into 3 main components: 
+
+1. `Model`. Objects, Javascript classes that model a real todo list. And also their methods which most likely include reading and writing data from a file.
+2. `View`. Formatting information and displaying it to the user.
+3. `Controller`. Interpret user input and then take appropriate action.
 
 
-Model-View-Controller - это шаблон проектирования, который ты будешь использовать для проектирования почти всех твоих приложений в Elbrus Coding Bootcamp. Чуть позже ты узнаешь больше об этом шаблоне проектирования.
+Model-View-Controller - this is a design pattern that you will use to design almost all of your applications in Elbrus Coding Bootcamp. You will learn more about this design pattern later.
 
 [wikipedia soc]: http://en.wikipedia.org/wiki/Separation_of_concerns
 [wikipedia srp]: http://en.wikipedia.org/wiki/Single_responsibility_principle
